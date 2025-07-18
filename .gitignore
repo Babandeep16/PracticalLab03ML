@@ -1,5 +1,6 @@
 # Ignore model weights
 models/*.h5
+models/
 #ignore dataset files
 datasets/
 /# Ignore dataset directories
