@@ -1,2 +1,15 @@
 # Ignore model weights
 models/*.h5
+#ignore dataset files
+datasets/
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+# Ignore Python bytecode files
+__pycache__/
+*.py[cod]
+# Ignore virtual environment directories
+venv/
+# Ignore logs
+logs/
+# Ignore temporary files
+*.tmp
