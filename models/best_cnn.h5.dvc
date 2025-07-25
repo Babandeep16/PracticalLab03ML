@@ -1,5 +1,0 @@
-outs:
-- md5: 0ba2e303fe60beffddeca17847aab0b2
-  size: 127681184
-  hash: md5
-  path: best_cnn.h5

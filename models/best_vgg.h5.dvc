@@ -1,5 +1,0 @@
-outs:
-- md5: dea6a35d9a891801009156c4dc7cdbef
-  size: 84119352
-  hash: md5
-  path: best_vgg.h5
