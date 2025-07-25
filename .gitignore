@@ -6,3 +6,10 @@ __pycache__/
 *.py[cod]
 
 
+models/*.h5
+datasets/
+
+
+
+
+
