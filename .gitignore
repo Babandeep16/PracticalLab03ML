@@ -5,6 +5,4 @@
 __pycache__/
 *.py[cod]
 
-# Ignore dvc
-.dvc/
-/datasets
+

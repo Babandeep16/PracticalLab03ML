@@ -13,22 +13,10 @@ We classify a dataset of cat and dog images using TensorFlow/Keras, analyze perf
 
 PracticalLab03/
 │
-├── datasets/
-│ └── cats_vs_dogs_small/
-│ ├── train/
-│ │ ├── cats/
-│ │ └── dogs/
-│ ├── validation/
-│ │ ├── cats/
-│ │ └── dogs/
-│ └── test/
-│ ├── cats/
-│ └── dogs/
-│
-├── models/ # Stores best model weights (.h5 files)
+├── .gitignore
 ├── Lab03.ipynb # Jupyter Notebook with code and analysis
 ├── requirements.txt # All required dependencies
-└── venv/ # Virtual environment folder
+
 
 
 
@@ -54,7 +42,19 @@ The dataset is a downsampled version from Kaggle's Dogs vs Cats, containing:
 
 2,000 test images (1,000 cats, 1,000 dogs)
 
-The data is split manually into structured subfolders for training, validation, and testing.
+At first, the data is split  into structured subfolders for training, validation, and testing.
+
+
+
+Due to GitHub file size limits, the dataset has been uploaded separately:
+
+ [Download Dataset from Google Drive]  (https://drive.google.com/file/d/1F1fRz65h9lFXcu11xrC-xuv6p3DhL0Vy/view?usp=sharing)
+Unzip it and place it in the following path before running the notebook:
+
+```bash
+datasets/cats_vs_dogs_small/
+datasets/test
+datasets/train
 
 
 ## Key Steps
