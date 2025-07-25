@@ -1,4 +1,4 @@
-#  Practical Lab 3 – Cats vs Dogs Image Classification
+# Practical Lab 3 – Cats vs Dogs Image Classification
 
 This lab demonstrates binary image classification using two deep learning approaches:
 
@@ -11,124 +11,128 @@ We classify a dataset of cat and dog images using TensorFlow/Keras, analyze perf
 
 ## Project Structure
 
+```
 PracticalLab03/
-│
 ├── .gitignore
-├── Lab03.ipynb # Jupyter Notebook with code and analysis
-├── requirements.txt # All required dependencies
-
-
-
-
+├── Lab03.ipynb         # Jupyter Notebook with full implementation and analysis
+├── requirements.txt    # All required dependencies
+├── datasets/           # Contains training, validation, and test images
+├── models/             # Stores best model files (CNN and VGG16)
+```
 
 ---
 
-##  Requirements
+## Requirements
 
-Install required packages from `requirements.txt` using:
+Install required packages using:
 
 ```bash
 pip install -r requirements.txt
+```
 
-
+---
 
 ## Dataset
 
 The dataset is a downsampled version from Kaggle's Dogs vs Cats, containing:
 
-5,000 training images (2,500 cats, 2,500 dogs)
+* 5,000 training images (2,500 cats, 2,500 dogs)
+* 1,000 validation images (500 cats, 500 dogs)
+* 2,000 test images (1,000 cats, 1,000 dogs)
 
-1,000 validation images (500 cats, 500 dogs)
+The data is structured into folders for training, validation, and testing.
 
-2,000 test images (1,000 cats, 1,000 dogs)
+> **Due to GitHub file size limits, the dataset is hosted externally:**
 
-At first, the data is split  into structured subfolders for training, validation, and testing.
+[Download Dataset from Google Drive](https://drive.google.com/file/d/14XcmkzEvRLGSwMvsweN4SETwUWm9vWCO/view?usp=sharing)
+[Download Models from Google Drive](https://drive.google.com/file/d/16GTtgB8Hpc7uTg1-mxo_ExTJShQx_Yb3/view?usp=sharing)
 
-
-
-Due to GitHub file size limits, the dataset has been uploaded separately:
-
- [Download Dataset from Google Drive]  (https://drive.google.com/file/d/1F1fRz65h9lFXcu11xrC-xuv6p3DhL0Vy/view?usp=sharing)
-Unzip it and place it in the following path before running the notebook:
+After downloading, unzip them and place them in the following structure:
 
 ```bash
-datasets/cats_vs_dogs_small/
-datasets/test
-datasets/train
+datasets/
+├── cats_vs_dogs_small/
+├── train/
+├── validation/
+└── test/
 
+models/
+├── best_cnn.h5
+└── best_vgg.h5
+```
+
+---
 
 ## Key Steps
 
-1. Dataset Loading and Preparation
-Image files are programmatically copied into train, validation, and test directories.
+### 1. Dataset Loading and Preparation
 
-A balanced dataset is ensured with equal number of cat and dog images in each subset.
+* Programmatically copy images into `train`, `validation`, and `test` directories.
+* Ensure class balance with equal number of cat and dog images per split.
 
-2. Exploratory Data Analysis (EDA)
-Class distributions are printed.
+### 2. Exploratory Data Analysis (EDA)
 
-Sample images are visualized for both classes to inspect data quality.
+* Print class distribution.
+* Visualize random samples from each class.
 
-3. Model 1: Vanilla CNN
-A custom CNN model is built using Conv2D, MaxPooling2D, and Dense layers.
+### 3. Model 1: Vanilla CNN
 
-Compiled with adam optimizer and binary_crossentropy loss.
+* Build a CNN using Conv2D, MaxPooling2D, Flatten, and Dense layers.
+* Compile with `adam` optimizer and `binary_crossentropy` loss.
+* Save best model using `ModelCheckpoint` callback.
 
-Best model saved via ModelCheckpoint.
+### 4. Model 2: Fine-Tuned VGG16
 
-4. Model 2: Fine-Tuned VGG16
-The VGG16 base is loaded without top layers.
+* Load pretrained VGG16 without top layers.
+* Add custom classification head (Dense and Dropout).
+* Freeze base layers initially, then optionally fine-tune.
 
-Custom classification head is added.
+### 5. Training & Evaluation
 
-The pretrained layers are frozen initially, then optionally unfrozen for fine-tuning.
+* Train both models for 10 epochs each.
+* Evaluate on test set using:
 
-5. Training & Evaluation
-Both models are trained for 10 epochs.
+  * Classification report
+  * Confusion matrix
+  * Misclassified image visualization
 
-Evaluation is done on the test set using:
+---
 
-- Classification report
-
-- Confusion matrix
-
-- Misclassified image visualization
-
-##  Results Comparison Table
+## Results Comparison
 
 | Metric        | Vanilla CNN | Fine-Tuned VGG16 |
-|---------------|-------------|------------------|
+| ------------- | ----------- | ---------------- |
 | Accuracy      | 86%         | **95%**          |
 | Precision     | 0.86        | **0.95**         |
 | Recall        | 0.86        | **0.95**         |
 | F1-Score      | 0.86        | **0.95**         |
-| Training Time | ~8 minutes  | ~31 minutes      |
+| Training Time | \~8 minutes | \~31 minutes     |
 
-##  VGG16 significantly outperformed the vanilla CNN with better generalization and faster convergence.
+>  **VGG16 significantly outperformed the vanilla CNN**, showing better generalization and faster convergence.
+
+---
 
 ## Visualizations
-## Training/Validation Accuracy and Loss plots
 
-## Confusion Matrices for both models
-
-## Misclassified Examples (from VGG16 predictions)
+* Training/Validation Accuracy and Loss Plots
+* Confusion Matrices for both models
+* Misclassified Images (from VGG16)
 
 These visualizations aid in model interpretability and debugging.
 
+---
+
 ## Conclusion
-Transfer learning with VGG16 provided substantial performance improvements over a custom CNN.
 
-The model can be further enhanced using data augmentation, dropout, or advanced architectures like ResNet or EfficientNet.
+Transfer learning using VGG16 provided substantial performance improvements over a custom CNN.
 
-Misclassified images showed ambiguity or poor lighting, highlighting the need for robustness in real-world deployment.
+Some misclassifications were due to ambiguous or low-quality images, emphasizing the need for robust data and preprocessing.
 
+---
 
- Author
-Name: Babandeep
+## Author
 
-Course: Foundations of Machine Learning Frameworks
-
-College: Conestoga College
-
-Lab: PracticalLab03 
-
+**Name:** Babandeep
+**Course:** Foundations of Machine Learning Frameworks
+**College:** Conestoga College
+**Lab:** PracticalLab03
