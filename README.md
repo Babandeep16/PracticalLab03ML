@@ -44,8 +44,8 @@ The data is structured into folders for training, validation, and testing.
 
 > **Due to GitHub file size limits, the dataset is hosted externally:**
 
-[Download Dataset from Google Drive](https://drive.google.com/file/d/14XcmkzEvRLGSwMvsweN4SETwUWm9vWCO/view?usp=sharing)
-[Download Models from Google Drive](https://drive.google.com/file/d/16GTtgB8Hpc7uTg1-mxo_ExTJShQx_Yb3/view?usp=sharing)
+[Download Dataset from Google Drive](https://drive.google.com/file/d/1m6j8OYqJj4PY-xA7zo1pvrSjk01V_Wsf/view?usp=sharing)
+[Download Models from Google Drive](https://drive.google.com/file/d/1wHCiPAe7-xrD9gvkdw1D6E0_RjuS0Zz_/view?usp=sharing)
 
 After downloading, unzip them and place them in the following structure:
 
